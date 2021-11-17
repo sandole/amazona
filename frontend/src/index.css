@@ -8,6 +8,12 @@ body {
   height: 100vh;
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root{
+  height: 100%;
 }
 
 /* Layout */
@@ -35,11 +41,21 @@ footer {
   color: #ffffff;
 }
 /* Common */
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
 a {
   text-decoration: none;
 }
 a:hover {
-  color: #1100ff;
+  color: #7700ff;
 }
 /* Header */
 header a {
@@ -59,4 +75,33 @@ a.brand {
 }
 .row.center {
   justify-content: center;
+}
+
+img {
+  border-radius: 0.5rem;
+}
+img.medium {
+  max-width: 29rem;
+  width: 100%;
+}
+
+/* Card */
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.card-body {
+  padding: 1rem;
+}
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+.price {
+  font-size: 2rem;
+}
+/* Rating stars */
+.rating span {
+  color: #f0c040;
 }
