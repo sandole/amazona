@@ -6,7 +6,7 @@ export default function Header() {
       <header className="row">
         <div>
           <a className="brand" href="/">
-            amazona
+            Im a John
           </a>
         </div>
         <div>
