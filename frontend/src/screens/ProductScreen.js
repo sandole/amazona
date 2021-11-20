@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -9,8 +9,7 @@ import Rating from "../components/Rating";
 export default function ProductScreen() {
   const dispatch = useDispatch();
   const { productId } = useParams();
-  
-  const productDetails = useSelector((state) => state.productDetails);
+  const productDetails = useSelector(state => state.productDetails);
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
@@ -44,7 +43,7 @@ export default function ProductScreen() {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Pirce : ${product.price}</li>
+                <li>Price : ${product.price}</li>
                 <li>
                   Description:
                   <p>{product.description}</p>
@@ -67,7 +66,7 @@ export default function ProductScreen() {
                         {product.countInStock > 0 ? (
                           <span className="success">In Stock</span>
                         ) : (
-                          <span className="danger">Unavailable</span>
+                          <span className="danger">Out of Stock</span>
                         )}
                       </div>
                     </div>
