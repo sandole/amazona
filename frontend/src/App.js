@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CartScreen from './screens/CartScreen';
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import Header from "./components/Header"
@@ -12,6 +13,7 @@ function App() {
         <Header/>
         <main>
           <Routes>
+            <Route path="/cart/:id?" component={<CartScreen />}></Route>
             <Route path="/product/:id" element={<ProductScreen />}></Route>
             <Route path="/" element={<HomeScreen/>}></Route>
           </Routes>
