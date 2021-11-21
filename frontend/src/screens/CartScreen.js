@@ -7,12 +7,12 @@ import MessageBox from '../components/MessageBox';
 
 export default function CartScreen() {
   const productId = useParams();
-  const location = useNavigate();
+  const history = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  const qty = location.search
-    ? Number(location.search.split('=')[1])
+  const qty = history.search
+    ? Number(history.search.split('=')[1])
     : 1;
 
   const removeFromCartHandler = (id) => {
@@ -20,7 +20,7 @@ export default function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    location.push('/signin?redirect=shipping');
+    history('/signin?redirect=shipping');
   };
 
   useEffect(() => {
