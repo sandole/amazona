@@ -20,7 +20,9 @@
   "homepage": "https://github.com/sandole/amazona#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
   }
 }
