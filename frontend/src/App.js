@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartScreen from './screens/CartScreen';
 import HomeScreen from "./screens/HomeScreen";
+import SigninScreen from './screens/SigninScreen';  
 import ProductScreen from "./screens/ProductScreen";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -16,8 +18,9 @@ function App() {
         <Header cartItems={cartItems.length}/>
         <main>
           <Routes>
-            <Route path="/cart" element={<CartScreen />}></Route>
+            <Route path="/cart/" element={<CartScreen />}></Route>
             <Route path="/product/:id" element={<ProductScreen />}></Route>
+            <Route path="/signin" element={<SigninScreen />}></Route>
             <Route path="/" element={<HomeScreen/>}></Route>
           </Routes>
         </main>
