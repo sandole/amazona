@@ -12,16 +12,19 @@ import Footer from "./components/Footer"
 function App() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
   return (
     <BrowserRouter>
       <div className="grid-container">
-        <Header cartItems={cartItems.length}/>
+        <Header cartItems={cartItems.length} userInfo={userInfo}/>
         <main>
           <Routes>
-            <Route path="/cart/" element={<CartScreen />}></Route>
-            <Route path="/product/:id" element={<ProductScreen />}></Route>
-            <Route path="/signin" element={<SigninScreen />}></Route>
-            <Route path="/" element={<HomeScreen/>}></Route>
+            <Route path="/signin" element={<SigninScreen />}/>
+            <Route path="/cart/" element={<CartScreen />}/>
+            <Route path="/cart/:id" element={<CartScreen />}/>
+            <Route path="/product/:id" element={<ProductScreen />}/>
+            <Route path="/" element={<HomeScreen/>}/>
           </Routes>
         </main>
         <Footer/>

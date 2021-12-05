@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-export default function SigninScreen(props) {
+export default function SigninScreen() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-  const { search } = useLocation();
+  const search = useLocation();
   const redirectInUrl = new URLSearchParams(search).get('redirect');
   const redirect = redirectInUrl ? redirectInUrl : '/';
+
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading, error } = userSignin;
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(signin(email, password));
   };
+
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
     }
-  }, [navigate, redirect, userInfo]);
+  }, [navigate,redirect, userInfo]);
 
   return (
     <div>
@@ -64,7 +65,10 @@ export default function SigninScreen(props) {
         <div>
           <label />
           <div>
-            New customer? <Link to="/register">Create your account</Link>
+            New customer?{' '}
+            <Link to={`/register?redirect=${redirect}`}>
+              Create your account
+            </Link>
           </div>
         </div>
       </form>
