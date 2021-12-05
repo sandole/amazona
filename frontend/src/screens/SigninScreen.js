@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {useNavigate} from 'react-router';
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function SigninScreen(props) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const history = useNavigate();
-    const redirect = history.search
-      ? history.search.split('=')[1]
-      : '/';
-  
-    const userSignin = useSelector((state) => state.userSignin);
-    const { userInfo, loading, error } = userSignin;
-  
-    const dispatch = useDispatch();
-    const submitHandler = (e) => {
-      e.preventDefault();
-      dispatch(signin(email, password));
-    };
-    useEffect(() => {
-      if (userInfo) {
-        props.history.push(redirect);
-      }
-    }, [props.history, redirect, userInfo]);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo, loading, error } = userSignin;
+  const dispatch = useDispatch();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(signin(email, password));
+  };
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
+
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
