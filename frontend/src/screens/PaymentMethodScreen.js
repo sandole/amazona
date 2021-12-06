@@ -4,11 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { savePaymentMethod } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { savePaymentMethod } from '../actions/cartActions';
-import CheckoutSteps from '../components/CheckoutSteps';
-
 export default function PaymentMethodScreen() {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
