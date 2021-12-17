@@ -9,6 +9,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen'
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from './screens/OrderScreen';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/payment" element={<PaymentMethodScreen/>}/>
             <Route path="/placeorder" element={<PlaceOrderScreen/>}/>
             <Route path="/product/:id" element={<ProductScreen />}/>
+            <Route path="/order/:id" component={OrderScreen}></Route>
             <Route path="/" element={<HomeScreen/>}/>
           </Routes>
         </main>
