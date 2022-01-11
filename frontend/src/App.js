@@ -8,6 +8,7 @@ import ProductScreen from "./screens/ProductScreen";
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen'
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 
@@ -24,6 +25,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/signin" element={<SigninScreen />}/>
+            <Route path="/placeorder" element={<PlaceOrderScreen />}/>
             <Route path="/cart/" element={<CartScreen />}/>
             <Route path="/cart/:id" element={<CartScreen />}/>
             <Route path="/register" element={<RegisterScreen/>}/>
