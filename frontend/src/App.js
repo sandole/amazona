@@ -9,10 +9,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen'
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-<<<<<<< HEAD
-=======
 import OrderScreen from './screens/OrderScreen';
->>>>>>> e5bd685962072e71143e270e59f94c4eefca6ba9
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 
